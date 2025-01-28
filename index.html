@@ -38,6 +38,9 @@
             margin-bottom: 10px;
             font-weight: bold;
         }
+        .hidden {
+            display: none;
+        }
     </style>
 </head>
 <body>
@@ -46,46 +49,89 @@
             <!-- Sidebar -->
             <div class="col-md-3 col-lg-2 sidebar d-flex flex-column">
                 <h4 class="text-center mb-4">Меню</h4>
-                <button class="btn btn-link w-100">Мои заказы</button>
-                <button class="btn btn-link w-100">Текущая дислокация</button>
-                <button class="btn btn-link w-100">Кнопка 1</button>
-                <button class="btn btn-link w-100">Кнопка 2</button>
-                <button class="btn btn-link w-100">Кнопка 3</button>
-                <button class="btn btn-link w-100">Кнопка 4</button>
-                <button class="btn btn-link w-100">Кнопка 5</button>
+                <button class="btn btn-link w-100" onclick="showSection('orders')">Мои заказы</button>
+                <button class="btn btn-link w-100" onclick="showSection('location')">Текущая дислокация</button>
+                <button class="btn btn-link w-100" onclick="showSection('button1')">Кнопка 1</button>
+                <button class="btn btn-link w-100" onclick="showSection('button2')">Кнопка 2</button>
+                <button class="btn btn-link w-100" onclick="showSection('button3')">Кнопка 3</button>
+                <button class="btn btn-link w-100" onclick="showSection('button4')">Кнопка 4</button>
+                <button class="btn btn-link w-100" onclick="showSection('button5')">Кнопка 5</button>
             </div>
 
             <!-- Main Content -->
             <div class="col-md-9 col-lg-10 content">
                 <h3 class="mb-4">Личный кабинет клиента</h3>
 
-                <!-- Block 1 -->
-                <div class="info-block">
-                    <h5>Информация о клиенте</h5>
-                    <p><strong>Имя клиента:</strong> Иван Иванов</p>
-                    <p><strong>Реквизиты:</strong> ООО "Транспорт Логистика", ИНН: 1234567890</p>
+                <!-- Orders Section -->
+                <div id="orders" class="info-block">
+                    <h5>Мои заказы</h5>
+                    <table class="table table-striped">
+                        <thead>
+                            <tr>
+                                <th>#</th>
+                                <th>Описание</th>
+                                <th>Статус</th>
+                                <th>Дата</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>1</td>
+                                <td>Заказ 1</td>
+                                <td>Выполнен</td>
+                                <td>2025-01-01</td>
+                            </tr>
+                            <tr>
+                                <td>2</td>
+                                <td>Заказ 2</td>
+                                <td>В процессе</td>
+                                <td>2025-01-15</td>
+                            </tr>
+                        </tbody>
+                    </table>
                 </div>
 
-                <!-- Block 2 -->
-                <div class="info-block">
-                    <h5>Количество заявок</h5>
-                    <p><strong>Общее количество заявок:</strong> 125</p>
+                <!-- Location Section -->
+                <div id="location" class="info-block hidden">
+                    <h5>Текущая дислокация</h5>
+                    <p>Информация о текущем местоположении будет здесь.</p>
                 </div>
 
-                <!-- Block 3 -->
-                <div class="info-block">
-                    <h5>Депозит</h5>
-                    <p><strong>Текущий депозит:</strong> 50,000 ₽</p>
+                <!-- Placeholder Sections -->
+                <div id="button1" class="info-block hidden">
+                    <h5>Кнопка 1</h5>
+                    <p>Содержимое кнопки 1.</p>
                 </div>
-
-                <!-- Block 4 -->
-                <div class="info-block">
-                    <h5>Дебиторская задолженность</h5>
-                    <p><strong>Общая задолженность:</strong> 15,000 ₽</p>
+                <div id="button2" class="info-block hidden">
+                    <h5>Кнопка 2</h5>
+                    <p>Содержимое кнопки 2.</p>
+                </div>
+                <div id="button3" class="info-block hidden">
+                    <h5>Кнопка 3</h5>
+                    <p>Содержимое кнопки 3.</p>
+                </div>
+                <div id="button4" class="info-block hidden">
+                    <h5>Кнопка 4</h5>
+                    <p>Содержимое кнопки 4.</p>
+                </div>
+                <div id="button5" class="info-block hidden">
+                    <h5>Кнопка 5</h5>
+                    <p>Содержимое кнопки 5.</p>
                 </div>
             </div>
         </div>
     </div>
+
+    <script>
+        function showSection(sectionId) {
+            // Hide all sections
+            document.querySelectorAll('.info-block').forEach(block => {
+                block.classList.add('hidden');
+            });
+            // Show the selected section
+            document.getElementById(sectionId).classList.remove('hidden');
+        }
+    </script>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
 </body>
