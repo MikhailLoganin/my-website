@@ -3,28 +3,90 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Личный кабинет</title>
+    <title>Личный кабинет клиента</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
     <style>
         body {
+            background-color: #f8f9fa; /* Светло-голубой фон */
             font-family: Arial, sans-serif;
-            background-color: #f4f4f4;
-            margin: 0;
-            padding: 0;
         }
-        header {
-            background-color: #333;
+        .sidebar {
+            background-color: #007bff; /* Голубой цвет */
             color: white;
-            padding: 1rem;
-            text-align: center;
+            height: 100vh;
+            padding-top: 20px;
+        }
+        .sidebar .btn {
+            color: white;
+            text-align: left;
+        }
+        .sidebar .btn:hover {
+            background-color: #0056b3; /* Темно-голубой при наведении */
+        }
+        .content {
+            padding: 20px;
+        }
+        .info-block {
+            border: 1px solid #dee2e6;
+            border-radius: 5px;
+            padding: 15px;
+            margin-bottom: 20px;
+            background-color: white;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        .info-block h5 {
+            margin-bottom: 10px;
+            font-weight: bold;
         }
     </style>
 </head>
 <body>
-    <header>
-        <h1>Добро пожаловать в личный кабинет</h1>
-    </header>
-    <div>
-        <p>Здесь будет отображаться информация о заказах.</p>
+    <div class="container-fluid">
+        <div class="row">
+            <!-- Sidebar -->
+            <div class="col-md-3 col-lg-2 sidebar d-flex flex-column">
+                <h4 class="text-center mb-4">Меню</h4>
+                <button class="btn btn-link w-100">Мои заказы</button>
+                <button class="btn btn-link w-100">Текущая дислокация</button>
+                <button class="btn btn-link w-100">Кнопка 1</button>
+                <button class="btn btn-link w-100">Кнопка 2</button>
+                <button class="btn btn-link w-100">Кнопка 3</button>
+                <button class="btn btn-link w-100">Кнопка 4</button>
+                <button class="btn btn-link w-100">Кнопка 5</button>
+            </div>
+
+            <!-- Main Content -->
+            <div class="col-md-9 col-lg-10 content">
+                <h3 class="mb-4">Личный кабинет клиента</h3>
+
+                <!-- Block 1 -->
+                <div class="info-block">
+                    <h5>Информация о клиенте</h5>
+                    <p><strong>Имя клиента:</strong> Иван Иванов</p>
+                    <p><strong>Реквизиты:</strong> ООО "Транспорт Логистика", ИНН: 1234567890</p>
+                </div>
+
+                <!-- Block 2 -->
+                <div class="info-block">
+                    <h5>Количество заявок</h5>
+                    <p><strong>Общее количество заявок:</strong> 125</p>
+                </div>
+
+                <!-- Block 3 -->
+                <div class="info-block">
+                    <h5>Депозит</h5>
+                    <p><strong>Текущий депозит:</strong> 50,000 ₽</p>
+                </div>
+
+                <!-- Block 4 -->
+                <div class="info-block">
+                    <h5>Дебиторская задолженность</h5>
+                    <p><strong>Общая задолженность:</strong> 15,000 ₽</p>
+                </div>
+            </div>
+        </div>
     </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
