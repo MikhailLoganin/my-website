@@ -188,4 +188,25 @@
             const deposit = document.getElementById('deposit').value;
 
             if (!clientName || !requestDetails || !deposit) {
-                alert('Заполните все обязательные поля
+                alert('Заполните все обязательные поля.');
+                return;
+            }
+
+            // Create an Excel file using JavaScript
+            const worksheet = XLSX.utils.json_to_sheet([{
+                'Наименование клиента': clientName,
+                'Детали заявки': requestDetails,
+                'Депозит': deposit
+            }]);
+
+            const workbook = XLSX.utils.book_new();
+            XLSX.utils.book_append_sheet(workbook, worksheet, 'Заявка');
+
+            // Save the Excel file
+            XLSX.writeFile(workbook, `${clientName}_Заявка.xlsx`);
+        }
+    </script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.17.1/xlsx.full.min.js"></script>
+</body>
+</html>
