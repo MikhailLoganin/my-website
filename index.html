@@ -174,11 +174,15 @@
         document.querySelectorAll('.required').forEach(input => {
             input.addEventListener('focus', event => {
                 const tooltip = event.target.nextElementSibling;
-                tooltip.style.display = 'block';
+                if (tooltip) {
+                    tooltip.style.display = 'block';
+                }
             });
             input.addEventListener('blur', event => {
                 const tooltip = event.target.nextElementSibling;
-                tooltip.style.display = 'none';
+                if (tooltip) {
+                    tooltip.style.display = 'none';
+                }
             });
         });
 
@@ -192,18 +196,23 @@
                 return;
             }
 
-            // Create an Excel file using JavaScript
-            const worksheet = XLSX.utils.json_to_sheet([{
-                'Наименование клиента': clientName,
-                'Детали заявки': requestDetails,
-                'Депозит': deposit
-            }]);
+            try {
+                // Create an Excel file using JavaScript
+                const worksheet = XLSX.utils.json_to_sheet([{
+                    'Наименование клиента': clientName,
+                    'Детали заявки': requestDetails,
+                    'Депозит': deposit
+                }]);
 
-            const workbook = XLSX.utils.book_new();
-            XLSX.utils.book_append_sheet(workbook, worksheet, 'Заявка');
+                const workbook = XLSX.utils.book_new();
+                XLSX.utils.book_append_sheet(workbook, worksheet, 'Заявка');
 
-            // Save the Excel file
-            XLSX.writeFile(workbook, `${clientName}_Заявка.xlsx`);
+                // Save the Excel file
+                XLSX.writeFile(workbook, `${clientName}_Заявка.xlsx`);
+            } catch (error) {
+                console.error('Ошибка при создании или сохранении Excel-файла:', error);
+                alert('Произошла ошибка при создании или сохранении Excel-файла. Пожалуйста, попробуйте снова.');
+            }
         }
     </script>
 
