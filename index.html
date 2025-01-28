@@ -41,13 +41,31 @@
         .hidden {
             display: none;
         }
+
+        /* Медиазапросы для мобильных устройств */
+        @media (max-width: 768px) {
+            .sidebar {
+                height: auto;
+                position: static;
+                padding: 10px 0;
+            }
+            .sidebar .btn {
+                display: block;
+                width: 100%;
+                padding: 10px;
+                text-align: center;
+            }
+            .content {
+                padding: 10px;
+            }
+        }
     </style>
 </head>
 <body>
     <div class="container-fluid">
         <div class="row">
             <!-- Sidebar -->
-            <div class="col-md-3 col-lg-2 sidebar d-flex flex-column">
+            <div class="col-sm-12 col-md-3 col-lg-2 sidebar d-flex flex-column">
                 <h4 class="text-center mb-4">Меню</h4>
                 <button class="btn btn-link w-100" onclick="showSection('orders')">Мои заказы</button>
                 <button class="btn btn-link w-100" onclick="showSection('location')">Текущая дислокация</button>
@@ -59,7 +77,7 @@
             </div>
 
             <!-- Main Content -->
-            <div class="col-md-9 col-lg-10 content">
+            <div class="col-sm-12 col-md-9 col-lg-10 content">
                 <h3 class="mb-4">Личный кабинет клиента</h3>
 
                 <!-- Orders Section -->
